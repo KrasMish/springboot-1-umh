@@ -18,8 +18,9 @@ public class PalindromeController {
 
     // Show form
     @GetMapping("/palindrome")
-    public String showForm(PalindromeData data) {
-        return "palindromeForm";
+    public String showForm(Model model) {
+        model.addAttribute("palindromeData", new PalindromeData()); // создаём объект формы
+        return "palindromeForm"; // имя HTML файла
     }
 
     // Process form
