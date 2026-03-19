@@ -1,6 +1,6 @@
 package demoapp;
 
-import demoapp.service.SaludoService;
+import demoapp.service.PalindromeService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -10,7 +10,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -22,18 +21,15 @@ public class MockServiceTest {
     @Autowired
     private MockMvc mockMvc;
 
-    // Podemos también mockear el servicio
     @MockBean
-    private SaludoService service;
+    private PalindromeService palindromeService;
 
     @Test
-    public void greetingShouldReturnMessageFromService() throws Exception {
+    public void palindromeMockShouldReturnCustomMessage() throws Exception {
+        when(palindromeService.isPalindrome("test")).thenReturn(true);
 
-        // Y especificar lo que debe devolver una llamada a uno de sus métodos
-        when(service.saluda("Juan")).thenReturn("Hola Mock Juan");
-
-        this.mockMvc.perform(get("/saludo/Juan"))
+        this.mockMvc.perform(post("/palindrome").param("word", "test"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Hola Mock Juan")));
+                .andExpect(content().string(containsString("It is a palindrome")));
     }
 }
