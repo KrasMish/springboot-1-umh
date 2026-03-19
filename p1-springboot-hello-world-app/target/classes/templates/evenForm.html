@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h2>Even Number Checker</h2>
+
+<form th:action="@{/even}" th:object="${numberData}" method="post">
+
+    <input type="number" th:field="*{number}" />
+    <span th:errors="*{number}"></span>
+
+    <br><br>
+    <button type="submit">Check</button>
+
+</form>
+
+</body>
+</html>
