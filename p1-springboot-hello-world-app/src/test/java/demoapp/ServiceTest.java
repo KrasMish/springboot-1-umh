@@ -33,7 +33,7 @@ public class ServiceTest {
 
     @Test
     public void serviceSaludo() {
-        assertThat(saludo.saluda("Juan")).isEqualTo("Hola Juan");
+        assertThat(saludo.saluda("Juan")).isEqualTo("Hello Juan");
     }
 
     // Palindrome

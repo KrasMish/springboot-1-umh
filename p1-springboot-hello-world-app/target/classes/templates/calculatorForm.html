@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h2>Calculator</h2>
+
+<form th:action="@{/calculator}" th:object="${calculatorData}" method="post">
+
+    <input type="number" step="any" th:field="*{a}" />
+
+    <select th:field="*{operation}">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <input type="number" step="any" th:field="*{b}" />
+
+    <br><br>
+    <button type="submit">Calculate</button>
+
+</form>
+
+</body>
+</html>

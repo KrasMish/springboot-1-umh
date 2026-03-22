@@ -61,28 +61,7 @@ MockServiceTest.java → Example test using a mocked service
 To run all tests:
 
 ./mvnw test
-Docker
 
-To run the application in a Docker container:
-
-Build the Docker image:
-
-docker build -t your_username/spring-bootdemoapp .
-
-Run the container:
-
-docker run -p 8080:8080 your_username/spring-bootdemoapp
-
-Open your browser at http://localhost:8080
-
-To upload the image to DockerHub:
-
-docker login
-docker push your_username/spring-bootdemoapp
-
-After pushing, you can include the DockerHub link in your README:
-
-https://hub.docker.com/r/your_username/spring-bootdemoapp
 Project structure
 src/
  ├─ main/java/demoapp
@@ -97,3 +76,9 @@ README.md
 Author
 
 Mykhailo Krasin
+
+Links:
+Docker
+https://hub.docker.com/r/kramish/spring-boot-demoapp
+GitHub
+https://github.com/KrasMish/springboot-1-umh
